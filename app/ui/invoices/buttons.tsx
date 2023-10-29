@@ -1,3 +1,5 @@
+"use client"
+
 import { deleteInvoice } from "@/app/lib/actions";
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -25,10 +27,10 @@ export function UpdateInvoice({ id }: { id: string }) {
   );
 }
 
-export function DeleteInvoice({ id }: { id: string }) {
+export async function DeleteInvoice({ id }: { id: string }) {
   return (
     <form action={deleteInvoice}>
-      <input type="hiddel" name="id" value={id} />
+      <input type="text" className="hidden" name="id" defaultValue={id} />
       <button className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
